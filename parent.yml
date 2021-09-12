@@ -1,0 +1,22 @@
+resources:
+- name: concourse-pipelines
+  type: git
+  icon: github
+  source:
+    uri: https://github.com/totr/concourse-pipelines.git
+
+jobs:
+- name: configure-self
+  plan:
+  - get: concourse-pipelines
+    trigger: true
+  - set_pipeline: reconfigure-pipelines
+    file: concourse-pipelines/parent.yml
+- name: configure-pipelines
+  public: true
+  plan:
+    - get: concourse-pipelines
+      trigger: true
+      passed: [configure-self]
+    - set_pipeline: hello-world
+      file: concourse-pipelines/hello-world.yml
