@@ -24,7 +24,7 @@ jobs:
         foo: bar
       instance_vars:
         first: second
-        number: "3000"
+        number: "3300"
         hello: WALLY-E
     - set_pipeline: hello-world
       file: concourse-pipelines/hello-world.yml
