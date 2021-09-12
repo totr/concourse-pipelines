@@ -20,5 +20,15 @@ jobs:
       passed: [configure-self]
     - set_pipeline: hello-world
       file: concourse-pipelines/hello-world.yml
-    - set_pipeline: hello-world2
-      file: concourse-pipelines/hello-world2.yml
+      vars:
+        foo: bar
+      instance_vars:
+        first: second
+        number: "3000"
+        hello: WALLY-E
+    - set_pipeline: hello-world
+      file: concourse-pipelines/hello-world.yml
+      instance_vars:
+        first: next
+        number: "4000"
+        hello: TT
