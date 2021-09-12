@@ -20,3 +20,5 @@ jobs:
       passed: [configure-self]
     - set_pipeline: hello-world
       file: concourse-pipelines/hello-world.yml
+    - set_pipeline: hello-world2
+      file: concourse-pipelines/hello-world2.yml
